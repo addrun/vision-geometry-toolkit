@@ -1,34 +1,13 @@
-name: import-reviewed-source
-on:
-  push:
-    branches: [main]
-    paths: [portfolio-source.zip]
-permissions:
-  contents: write
+name: geometry-tests
+on: [push, pull_request]
 jobs:
-  import:
+  test:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Verify and import reviewed source archive
-        shell: bash
-        run: |
-          python3 - <<'PYCODE'
-          import hashlib, pathlib, zipfile
-          archive = pathlib.Path("portfolio-source.zip")
-          assert hashlib.sha256(archive.read_bytes()).hexdigest() == "0d3a5f689930cb25c5e093f16d70c04af2b0b7ef040c43fed2c98d78fce3a781", "Archive checksum mismatch"
-          with zipfile.ZipFile(archive) as source:
-              for entry in source.infolist():
-                  path = pathlib.PurePosixPath(entry.filename)
-                  assert not path.is_absolute() and ".." not in path.parts
-                  assert path.parts[0] not in {".git", ".github"}
-                  destination = pathlib.Path(*path.parts)
-                  destination.parent.mkdir(parents=True, exist_ok=True)
-                  destination.write_bytes(source.read(entry))
-          archive.unlink()
-          PYCODE
-          git config user.name shhr
-          git config user.email 141168900+addrun@users.noreply.github.com
-          git add --all
-          git commit -m "Publish reviewed vision-geometry-toolkit source"
-          git push origin HEAD:main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e '.[test]'
+      - run: python -m pytest -q
+      - run: vision-geometry demo --output output/demo
