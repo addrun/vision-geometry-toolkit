@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vision-geometry-toolkit"
+version = "0.1.0"
+description = "Reproducible monocular ranging and ArUco pose experiments"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "AGPL-3.0-only"}
+authors = [{name = "shhr"}]
+dependencies = ["numpy>=1.24,<3", "opencv-contrib-python>=4.7,<5"]
+
+[project.optional-dependencies]
+yolo = ["ultralytics>=8.3,<9"]
+test = ["pytest>=7,<10"]
+
+[project.scripts]
+vision-geometry = "vision_geometry.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

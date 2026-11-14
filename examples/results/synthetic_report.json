@@ -1,0 +1,27 @@
+{
+  "data_source": "synthetic, not camera measurements",
+  "focal_px": 600.0,
+  "mean_absolute_error_m": 0.0155325,
+  "marker_size_m": 0.12,
+  "poses": [
+    {
+      "id": 7,
+      "translation_m": [
+        -0.00037735849655726243,
+        -0.00037735849655726243,
+        0.4528301886681154
+      ],
+      "rotation_vector_rad": [
+        3.141592653212217,
+        -6.92801123465632e-23,
+        -5.930950454658269e-10
+      ],
+      "camera_position_in_marker_m": [
+        0.0003773586675350886,
+        -0.0003773586675352164,
+        0.4528301886678305
+      ],
+      "reprojection_rmse_px": 8.405734895226277e-09
+    }
+  ]
+}

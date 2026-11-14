@@ -1,0 +1,26 @@
+{
+  "sample_count": 4,
+  "measurements": [
+    {
+      "distance_m": 0.5,
+      "estimated_distance_m": 0.502092050209205,
+      "absolute_error_m": 0.0020920502092049986
+    },
+    {
+      "distance_m": 1.0,
+      "estimated_distance_m": 0.9917355371900827,
+      "absolute_error_m": 0.008264462809917328
+    },
+    {
+      "distance_m": 1.5,
+      "estimated_distance_m": 1.518987341772152,
+      "absolute_error_m": 0.018987341772152
+    },
+    {
+      "distance_m": 2.0,
+      "estimated_distance_m": 1.9672131147540983,
+      "absolute_error_m": 0.032786885245901676
+    }
+  ],
+  "mae_m": 0.015532685009294
+}

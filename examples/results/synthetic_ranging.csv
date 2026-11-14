@@ -1,0 +1,5 @@
+synthetic_distance_m,pixel_height,estimated_distance_m,absolute_error_m
+0.5,239,0.502092,0.002092
+1.0,121,0.991736,0.008264
+1.5,79,1.518987,0.018987
+2.0,61,1.967213,0.032787
